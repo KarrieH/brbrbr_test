@@ -1,0 +1,40 @@
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+$APPLICATION->SetPageProperty("description", "Забронируйте номер в парк-отеле \"Русь\" онлайн - мгновенно дешевле");
+$APPLICATION->SetPageProperty("keywords", "забронировать номер, онлайн-бронирование в Парк-отеле Русь, бронирование отелей, бронирование отеля в Апатитах, бронирование отеля в Мурманской области");
+$APPLICATION->SetPageProperty("title", "Онлайн-бронирование в парк-отеле \"Русь\"");
+$APPLICATION->SetTitle("Онлайн-бронирование в парк-отеле \"Русь\"");
+$arTitles = getPageTitleArray($APPLICATION->GetCurDir());
+$APPLICATION->SetPageProperty('title', $arTitles['TITLE']);
+$APPLICATION->SetTitle($arTitles['TITLE']);
+
+global $arTravellinesScripts;?>
+<main class="main">
+	<div class="container">
+		<div id="booking_iframe" style="position: relative; padding-bottom: 30px;">
+			<div id="bn_iframe" style="font-family: 'Proxima nova', 'Helvetica Neue', 'Cera Pro Medium', Arial, Helvetica, sans-serif; position: absolute; right: 0; bottom: 0; font-size: 12px; line-height: 1em; opacity: .5; z-index: 10; margin-top: 10px;">
+				<div style="color: #1403fc!important; background: rgba(0, 0, 0, 0)!important;">
+					<a style="color: #808080!important; background: #fff!important;" href="https://bnovo.ru/bnovo-mb/?utm_source=client_modul_br" id="bnovo_link" target="_blank">Система управления отелем Bnovo ©</a>
+				</div>
+			</div>
+		</div>
+		<script src="https://widget.reservationsteps.ru/iframe/library/dist/booking_iframe.js"></script>
+		<script type="text/javascript">
+			(function () {
+				var BnovoBookFrame = new BookingIframe({
+					html_id: "booking_iframe",
+					uid: "561b5123-64ef-48a4-bafe-ea6673201b8a",
+					lang: "ru",
+					width: "auto",
+					height: "auto",
+					rooms: "",
+					IsMobile: "0",
+					scroll_to_rooms: "0",
+					fixed_mobile_header_selector: ".header",
+					fixed_mobile_footer_selector: ".scroll-top"
+				});
+				BnovoBookFrame.init();
+			})();
+		</script>
+	</div>
+</main>
+ <?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
